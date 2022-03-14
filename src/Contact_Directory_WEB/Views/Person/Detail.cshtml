@@ -1,0 +1,32 @@
+﻿@model Contact_Directory_WEB.Models.Person
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Update", "Person", FormMethod.Post))
+{
+    <table class="table table-bordered">
+        <tr>
+            <th class="text-center">Name</th>
+            <th class="text-center">Surname</th>
+            <th class="text-center">Tel1</th>
+            <th class="text-center">Tel2</th>
+            <th class="text-center">Email1</th>
+            <th class="text-center">Email2</th>
+            <th class="text-center">Location</th>
+        </tr>
+        <tr>
+            @Html.TextBoxFor(x => x.personId, new { @readonly = "readonly", @hidden = "true" })
+            <td class="text-center">@Html.TextBoxFor(x => x.Name)</td>
+            <td class="text-center">@Html.TextAreaFor(x => x.Surname)</td>
+            <td class="text-center">@Html.TextBoxFor(x => x.tel1)</td>
+            <td class="text-center">@Html.TextBoxFor(x => x.tel2)</td>
+            <td class="text-center">@Html.TextBoxFor(x => x.email1)</td>
+            <td class="text-center">@Html.TextBoxFor(x => x.emaikl2)</td>
+            <td class="text-center">@Html.TextBoxFor(x => x.location)</td>
+            <td class="text-center"><a href="/Person/Delete?id=@ViewBag.id" onclick="return confirm('Are you sure you want to delete the @ViewBag.name?')" class="btn btn-danger">Delete</a></td>
+            <td class="text-center"><button class="btn btn-success" onclick="return confirm('Save changes')">Update</button></td>
+        </tr>
+    </table>
+}
+

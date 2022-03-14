@@ -1,0 +1,42 @@
+﻿@model List<Contact_Directory_WEB.Models.Person>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var count = 1;
+}
+
+<h2 class="text-center">Persons List</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th class="text-center">Sıra</th>
+        <th class="text-center">Person Id</th>
+        <th class="text-center">Name</th>
+        <th class="text-center">Surname</th>
+        <th class="text-center">Tel1</th>
+        <th class="text-center">Tel2</th>
+        <th class="text-center">Email1</th>
+        <th class="text-center">Email2</th>
+        <th class="text-center">Location</th>
+    </tr>
+
+    @foreach (var item in ViewBag.Data)
+    {
+        <tr>
+            <th class="text-center">@count</th>
+            <td class="text-center">@item.personId</td>
+            <td class="text-center">@item.Name</td>
+            <td class="text-center">@item.Surname</td>
+            <td class="text-center">@item.tel1</td>
+            <td class="text-center">@item.tel2</td>
+            <td class="text-center">@item.email1</td>
+            <td class="text-center">@item.emaikl2</td>
+            <td class="text-center">@item.location</td>
+            <td class="text-center">
+                <a href="/Person/Delete?id=@item.personId" onclick="return confirm('Are you sure you want to delete the @(item.Name+' '+item.Surname)?')" class="btn btn-danger">Delete</a>
+            </td>
+            <td class="text-center"><a href="/Person/Detail?id=@item.personId" class="btn btn-success">Update</a></td>
+        </tr>
+        count++;
+    }
+</table>
