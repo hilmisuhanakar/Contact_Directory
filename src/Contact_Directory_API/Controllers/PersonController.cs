@@ -45,6 +45,7 @@ namespace Contact_Directory_API.Controllers
                         else
                         {
                             db.Persons.Add(per);
+                            db.SaveChanges();
                         }
                     }
 
@@ -54,6 +55,7 @@ namespace Contact_Directory_API.Controllers
                     if (per.personId > 0)
                     {
                         db.Entry(per).State = EntityState.Modified;
+                        db.SaveChanges();
                     }
                     else
                     {
@@ -61,7 +63,6 @@ namespace Contact_Directory_API.Controllers
                     }
 
                 }
-                db.SaveChanges();
             }
             catch (Exception ex)
             {

@@ -1,5 +1,6 @@
 ﻿using Contact_Directory_WEB.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Nancy.Json;
 using Newtonsoft.Json;
 using System;
@@ -103,12 +104,12 @@ namespace Contact_Directory_WEB.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(Person person)
+        public ActionResult Post(Person person)
         {
             HttpClient client = new HttpClient();
-            HttpRequestMessage request = new HttpRequestMessage();
             var result = client.PostAsync("http://localhost:6300/api/person", new Person
             {
+                personId = person.personId,
                 name = person.name,
                 surname = person.surname,
                 tel1 = person.tel1,
