@@ -13,5 +13,7 @@ namespace Contact_Directory_API.Models
             optionsBuilder.UseSqlServer(@"server=DESKTOP-U0A1F27\SQLEXPRESS; database=Directory; integrated security=true");
         }
         public DbSet<Person> Persons { get; set; }
+        public DbSet<PersonDetail> PersonDetails { get; set; }
     }
 }
+

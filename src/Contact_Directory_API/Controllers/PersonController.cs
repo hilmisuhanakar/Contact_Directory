@@ -14,13 +14,13 @@ namespace Contact_Directory_API.Controllers
         ContextDb db = new ContextDb();
 
         [HttpGet]
-        public String Get()
+        public String Get()//Kişi Listesi Json Formatında Getiriliyor.
         {
             return new JavaScriptSerializer().Serialize(db.Persons.ToList());
         }
 
         [HttpGet("{id}")]
-        public String Get(int id)
+        public String Get(int id)//Tek Bir Kişinin Verileri Json Formatında Getiriliyor.
         {
             return new JavaScriptSerializer().Serialize(db.Persons.Find(id));
         }
@@ -32,13 +32,13 @@ namespace Contact_Directory_API.Controllers
             {
                 if (per.personId == 0)
                 {
-                    if (string.IsNullOrEmpty(per.name))
+                    if (string.IsNullOrEmpty(per.name)) //Yeni Kayit Yaparken Name Alani Kontrol Ediliyor.
                     {
                         throw new Exception("Name is not null or empty!!!");
                     }
                     else
                     {
-                        if (string.IsNullOrEmpty(per.tel1+per.tel2+per.email1+per.email2))
+                        if (string.IsNullOrEmpty(per.tel1+per.tel2+per.email1+per.email2)) // Yeni Kayit Yapilirken En Az 1 Tane Iletişim Bilgisi Gerekiyor.
                         {
                             throw new Exception("En az bir tane iletişim bilgisi giriniz!!!");
                         }
@@ -52,7 +52,7 @@ namespace Contact_Directory_API.Controllers
                 }
                 else
                 {
-                    if (per.personId > 0)
+                    if (per.personId > 0) // personId 0'dan Buyukse Boyle Bir Veri Zaten Vardir. Bu Sebeple Guncelleme Yapiliyor.
                     {
                         db.Entry(per).State = EntityState.Modified;
                         db.SaveChanges();

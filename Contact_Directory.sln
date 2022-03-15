@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contact_Directory_API", "src\Contact_Directory_API\Contact_Directory_API.csproj", "{3DB8C3FF-ED22-416E-B1D7-BB955EDCD40B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contact_Directory_API", "src\Contact_Directory_API\Contact_Directory_API.csproj", "{3DB8C3FF-ED22-416E-B1D7-BB955EDCD40B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contact_Directory_WEB", "src\Contact_Directory_WEB\Contact_Directory_WEB.csproj", "{7788F885-6141-4643-AC41-32E816B7E287}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contact_Directory_WEB", "src\Contact_Directory_WEB\Contact_Directory_WEB.csproj", "{7788F885-6141-4643-AC41-32E816B7E287}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contact_Directory_API2", "src\Contact_Directory_API2\Contact_Directory_API2.csproj", "{FE56BEFA-CC12-47C8-9FDF-A8C2FBB6657A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7788F885-6141-4643-AC41-32E816B7E287}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7788F885-6141-4643-AC41-32E816B7E287}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7788F885-6141-4643-AC41-32E816B7E287}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE56BEFA-CC12-47C8-9FDF-A8C2FBB6657A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE56BEFA-CC12-47C8-9FDF-A8C2FBB6657A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE56BEFA-CC12-47C8-9FDF-A8C2FBB6657A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE56BEFA-CC12-47C8-9FDF-A8C2FBB6657A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
