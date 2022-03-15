@@ -10,9 +10,9 @@ namespace Contact_Directory_WEB.Models
     {        
         public long personId { get; set; }
 
-        public string Name { get; set; }
+        public string name { get; set; }
 
-        public string Surname { get; set; }
+        public string surname { get; set; }
 
         public string tel1 { get; set; }
 
@@ -20,19 +20,19 @@ namespace Contact_Directory_WEB.Models
 
         public string email1 { get; set; }
 
-        public string emaikl2 { get; set; }
+        public string email2 { get; set; }
 
         public string location { get; set; }
 
         public Person()
         {
             personId = 0;
-            Name = "";
-            Surname = "";
+            name = "";
+            surname = "";
             tel1 = "";
             tel2 = "";
             email1 = "";
-            emaikl2 = "";
+            email2 = "";
             location = "";
         }
     }

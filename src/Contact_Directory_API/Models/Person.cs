@@ -10,23 +10,23 @@ namespace Contact_Directory_API.Models
     {
         [Key]
         public int personId { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        public string name { get; set; }
+        public string surname { get; set; }
         public string tel1 { get; set; }
         public string tel2  { get; set; }
         public string email1 { get; set; }
-        public string emaikl2 { get; set; }
+        public string email2 { get; set; }
         public string location { get; set; }
 
         public Person()
         {
             personId = 0;
-            Name = "";
-            Surname = "";
+            name = "";
+            surname = "";
             tel1 = "";
             tel2 = "";
             email1 = "";
-            emaikl2 = "";
+            email2 = "";
             location = "";
         }
     }

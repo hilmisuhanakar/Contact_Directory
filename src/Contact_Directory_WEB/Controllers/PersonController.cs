@@ -55,7 +55,7 @@ namespace Contact_Directory_WEB.Controllers
             }
         }
 
-        public List<Person> GetApiData(int id)
+        public Person GetApiData(int id)
         {
             try
             {
@@ -71,10 +71,10 @@ namespace Contact_Directory_WEB.Controllers
 
                 //JSON Parse START
                 JavaScriptSerializer ser = new JavaScriptSerializer();
-                List<Person> jsonList = ser.Deserialize<List<Person>>(json);
+                List<Person> jsonList = ser.Deserialize<List<Person>>(json).ToList();
                 //END
                 ViewBag.id = id;
-                return jsonList;
+                return jsonList[0];
             }
             catch (Exception ex)
             {
