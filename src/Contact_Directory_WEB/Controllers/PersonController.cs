@@ -7,18 +7,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Threading.Tasks;
 
 namespace Contact_Directory_WEB.Controllers
 {
     public class PersonController : Controller
     {
-        [HttpGet]
         public ActionResult Index()
         {
             try
             {
-                ViewBag.Data = GetApiData();
+                ViewBag.Data = GetApiListData();
 
                 return View();
             }
@@ -28,7 +28,7 @@ namespace Contact_Directory_WEB.Controllers
             }
         }
 
-        public List<Person> GetApiData()
+        public List<Person> GetApiListData()
         {
             try
             {
@@ -59,7 +59,7 @@ namespace Contact_Directory_WEB.Controllers
         {
             try
             {
-                var apiUrl = "http://localhost:6300/api/person/" + id;
+                var apiUrl = "http://localhost:6300/api/person" + "/" + id;
 
                 //Connect API
                 Uri url = new Uri(apiUrl);
@@ -71,10 +71,11 @@ namespace Contact_Directory_WEB.Controllers
 
                 //JSON Parse START
                 JavaScriptSerializer ser = new JavaScriptSerializer();
-                List<Person> jsonList = ser.Deserialize<List<Person>>(json).ToList();
+                Person jsonData = ser.Deserialize<Person>(json);
                 //END
                 ViewBag.id = id;
-                return jsonList[0];
+                ViewBag.Title = jsonData.name + " " + jsonData.surname;
+                return jsonData;
             }
             catch (Exception ex)
             {
@@ -82,15 +83,11 @@ namespace Contact_Directory_WEB.Controllers
             }
         }
 
-
-        [HttpGet]
         public ActionResult Detail(int id)
         {
             try
             {
-                ViewBag.Data = GetApiData(id);
-
-                return View();
+                return View(GetApiData(id));
             }
             catch (Exception ex)
             {
@@ -98,19 +95,51 @@ namespace Contact_Directory_WEB.Controllers
             }
         }
 
+        [HttpGet]
 
-        [HttpDelete]
+        public ActionResult Add()
+        {
+            return View();
+        }
 
-        public JsonResult Delete(int id)
+        [HttpPost]
+        public ActionResult Add(Person person)
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.DeleteAsync("http://localhost:6300/api/person/" + id).Result;
-            if (response.IsSuccessStatusCode)
+            HttpRequestMessage request = new HttpRequestMessage();
+            var result = client.PostAsync("http://localhost:6300/api/person", new Person
             {
-                var rslt = response.Content.ReadAsStringAsync().Result;
-                JsonConvert.DeserializeObject<Person>(rslt);
+                name = person.name,
+                surname = person.surname,
+                tel1 = person.tel1,
+                tel2 = person.tel2,
+                email1 = person.email1,
+                email2 = person.email2,
+                location = person.location
+            }, new JsonMediaTypeFormatter()).Result;
+            return RedirectToAction("Index");
+        }
+
+
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                HttpRequestMessage request = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Delete,
+                    RequestUri = new Uri("http://localhost:6300/api/person" + "/" + id)
+                };
+                HttpResponseMessage resposne = client.DeleteAsync("http://localhost:6300/api/person" + "/" + id).Result;
+
+                return RedirectToAction("Index");
             }
-            return Json("False");
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
         }
 
     }

@@ -32,7 +32,22 @@ namespace Contact_Directory_API.Controllers
             {
                 if (per.personId == 0)
                 {
-                    db.Persons.Add(per);
+                    if (string.IsNullOrEmpty(per.name))
+                    {
+                        throw new Exception("Name is not null or empty!!!");
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(per.tel1+per.tel2+per.email1+per.email2))
+                        {
+                            throw new Exception("En az bir tane iletişim bilgisi giriniz!!!");
+                        }
+                        else
+                        {
+                            db.Persons.Add(per);
+                        }
+                    }
+
                 }
                 else
                 {
