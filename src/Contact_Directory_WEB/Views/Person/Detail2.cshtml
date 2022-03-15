@@ -1,0 +1,33 @@
+﻿@model Contact_Directory_WEB.Models.PersonDetailModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="text-center">@ViewBag.Title</h3>
+
+@using (Html.BeginForm("Add2", "Person", FormMethod.Post))
+{
+    <table class="table table-bordered table-responsive-sm">
+        <tr>
+            <th class="text-center">Tel</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Location</th>
+        </tr>
+
+        @foreach (var item in Model.personDetailList)
+        {
+    <tr>
+        <td class="text-center">@item.tel</td>
+        <td class="text-center">@item.email</td>
+        <td class="text-center">@item.location</td>
+        <td class="text-center"><a href="/Person/Delete2?id=@item.personDetailId" onclick="return confirm('Are you sure you want to delete the @ViewBag.Title?')" class="btn btn-danger">Delete</a></td>
+    </tr>
+        }
+
+
+    </table>
+    <div>
+        <a href="/Person/Add2?personId=@Model.personId&detailId=0" class="btn btn-info">Person Detail Add</a>
+    </div>
+}
+

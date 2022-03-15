@@ -36,6 +36,7 @@
                 <a href="/Person/Delete?id=@item.personId" onclick="return confirm('Are you sure you want to delete the @(item.name+' '+item.surname)?')" class="btn btn-danger">Delete</a>
             </td>
             <td class="text-center"><a href="/Person/Detail?id=@item.personId" class="btn btn-success">Update</a></td>
+            <td><a href="/Person/Detail2?id=@item.personId" class="btn btn-info">Person Detail</a></td>
         </tr>
         count++;
     }

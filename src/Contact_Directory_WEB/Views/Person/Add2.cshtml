@@ -1,0 +1,25 @@
+﻿@model Contact_Directory_WEB.Models.PersonDetail
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Post2", "Person", FormMethod.Post))
+{
+    <div>
+        @Html.TextBoxFor(x => x.personDetailId, new { @readonly = "readonly", @hidden = "true" })
+        @Html.TextBoxFor(x => x.personId, new { @readonly = "readonly", @hidden = "true" })
+        <h6>Tel</h6>
+        @Html.TextBoxFor(x => x.tel)
+        <br />
+        <h6>Email</h6>
+        @Html.TextBoxFor(x => x.email)
+        <br />
+        <h6>Location</h6>
+        @Html.TextBoxFor(x => x.location)
+        <br />
+    </div>
+    <div>
+        <button class="btn btn-info">Save</button>
+    </div>
+
+}
