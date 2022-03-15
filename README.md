@@ -6,9 +6,11 @@ web servisi Contact_Directory_API web servisi ile haberleşmektedir. Contact_Dir
 ![image](https://user-images.githubusercontent.com/61107806/158446464-ae954953-a11b-4fdb-8341-1652c21d52d4.png)
 
 
+⭕ Projeleri sırasıyla Contact_Directory_API-Contact_Directory_API2-Contact_Directory_WEB şeklinde çalıştırmalısınız. Projeyi çalıştırmak için her bir projeyi tek tek çalıştırmanız gerekmektedir. Bir tek projeye sağ tıklayıp Debug/Start New Instance diyerek çalıştırın. Sonrasında diğer projeleride aynı şekilde çalıştırarak test edebilirsiniz.
+
 👍***Contact_Directory_API***
 <br/>
-Contact_Directory_API web servisinde kişiler için gerekli CRUD işlemleri yapildi. Kişi ekleme , güncelleme, silme ve listeleme işlemleri bu web serviste gerçekleşiyor. Proje ile veri tabanı bağlantısı proje içerisinde Models dosyaının ContexDb classı içerisinde yapılıyor.
+Contact_Directory_API web servisinde kişiler için gerekli CRUD işlemleri yapildi. Kişi ekleme , güncelleme, silme ve listeleme işlemleri bu web serviste gerçekleşiyor. Proje ile veri tabanı bağlantısı proje içerisinde Models dosyasının ContexDb classı içerisinde yapılıyor.
 
 ![image](https://user-images.githubusercontent.com/61107806/158449705-7c6ec491-96c6-48b4-8daa-72b5aa26d745.png)
 
